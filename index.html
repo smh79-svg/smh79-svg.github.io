@@ -20,16 +20,14 @@ layout: default
     left: 0;
     width: 100vw;
     height: 100vh;
-    /* 这是最神奇的一句：自动放大铺满屏幕，多余部分自动藏起来 */
     background-image: url('/assets/img/bg.jpg');
     background-size: cover; 
-    /* 镜头稍微偏上一点点，保证人物的脸和国旗在画面中央 */
     background-position: center 30%; 
     background-repeat: no-repeat;
     
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 文字和按钮居中 */
+    justify-content: center;
     align-items: center;
     text-align: center;
     z-index: 1000;
@@ -43,23 +41,25 @@ layout: default
     margin-bottom: 0;
   }
 
+  /* 按钮样式：黄色背景，白色文字 */
   .start-btn {
     display: inline-block;
     margin-top: 30px; 
     padding: 15px 40px;
-    background-color: rgba(0, 133, 161, 0.8);
-    color: #ffffff;
+    background-color: #ffc107; /* 黄色背景 */
+    color: #ffffff; /* 白色文字 */
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
-    border: 2px solid #0085a1;
+    border: 2px solid #ffc107;
   }
 
+  /* 鼠标悬停时的效果：反色（白底黄字） */
   .start-btn:hover {
     background-color: #ffffff;
-    color: #0085a1;
+    color: #ffc107;
     text-decoration: none;
     transform: scale(1.05);
   }
