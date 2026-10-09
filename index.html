@@ -9,7 +9,7 @@ layout: default
     width: 100%;
     height: 100%;
     overflow: hidden; /* 禁止滚动 */
-    background-color: #000000; /* 黑色背景填充图片两边留白 */
+    background-color: #000000;
   }
   
   .navbar, footer { display: none !important; }
@@ -20,20 +20,19 @@ layout: default
     left: 0;
     width: 100vw;
     height: 100vh;
-    /* 图片完整显示，不裁剪 */
+    /* 这是最神奇的一句：自动放大铺满屏幕，多余部分自动藏起来 */
     background-image: url('/assets/img/bg.jpg');
-    background-size: contain; 
-    background-position: center;
+    background-size: cover; 
+    /* 镜头稍微偏上一点点，保证人物的脸和国旗在画面中央 */
+    background-position: center 30%; 
     background-repeat: no-repeat;
     
     display: flex;
     flex-direction: column;
-    /* 关键修改：完全居中 */
-    justify-content: center; 
+    justify-content: center; /* 文字和按钮居中 */
     align-items: center;
     text-align: center;
     z-index: 1000;
-    box-sizing: border-box;
   }
 
   .landing-title {
@@ -46,7 +45,6 @@ layout: default
 
   .start-btn {
     display: inline-block;
-    /* 关键修改：缩小按钮和标题的间距 */
     margin-top: 30px; 
     padding: 15px 40px;
     background-color: rgba(0, 133, 161, 0.8);
