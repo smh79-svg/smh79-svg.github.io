@@ -3,47 +3,52 @@ layout: default
 ---
 
 <style>
-  /* 1. 强制清除浏览器默认的边距，并锁定屏幕高度，解决上下滚动和留白 */
+  /* 1. 强制清除浏览器默认边距，并锁定宽高 */
   html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
     height: 100%;
-    overflow: hidden; /* 隐藏滚动条 */
+    overflow: hidden; /* 禁止滑动 */
   }
   
   /* 2. 隐藏原生的导航栏和页脚 */
   .navbar, footer { display: none !important; }
 
-  /* 3. 全屏背景容器 */
+  /* 3. 使用 fixed 定位，强行覆盖整个屏幕，彻底解决留白和右下角问题 */
   .landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background-image: url('/assets/img/bg.jpg');
     background-size: cover;
     background-position: center;
-    width: 100vw;
-    height: 100vh;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    /* 4. 关键修改：让内容从屏幕上方开始排列，不再死死居中 */
-    justify-content: flex-start; 
+    justify-content: flex-start; /* 内容从上往下排列 */
     align-items: center;
     text-align: center;
-    padding-top: 80px; /* 距离顶部留出 80px 的空间，不贴死 */
+    padding-top: 80px; /* 距离顶部留白 */
+    z-index: 1000;
     box-sizing: border-box;
   }
 
-  /* 5. 标题样式 */
+  /* 4. 标题样式 */
   .landing-title {
     font-size: 4rem;
     font-weight: bold;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 文字阴影，防止背景太亮看不清 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     margin-bottom: 0;
   }
 
-  /* 6. 按钮样式 */
+  /* 5. 按钮样式 */
   .start-btn {
     display: inline-block;
-    margin-top: 60px; /* 标题和按钮之间的距离 */
+    margin-top: 60px;
     padding: 15px 40px;
     background-color: rgba(0, 133, 161, 0.8);
     color: #ffffff;
@@ -64,11 +69,6 @@ layout: default
 </style>
 
 <div class="landing-page">
-  <!-- 标题现在在最上方 -->
   <div class="landing-title">欢迎来到SHY的世界</div>
-  
-  <!-- 去掉了“纯粹写日记”的副标题 -->
-  
-  <!-- 按钮文字变成了打开日记本 -->
   <a href="/diary" class="start-btn">打开我的日记本</a>
 </div>
